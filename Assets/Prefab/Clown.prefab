@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3680152726598557079, guid: 7f13aba361134c146862354f6ef6f766, type: 3}
+      propertyPath: popupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f66adb892d591674a85e1b18b68a575e, type: 3}
     - target: {fileID: 4651651584701831069, guid: 7f13aba361134c146862354f6ef6f766, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608060061756196480, guid: 7f13aba361134c146862354f6ef6f766, type: 3}
       propertyPath: m_Name
-      value: Clown Variant
+      value: Clown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

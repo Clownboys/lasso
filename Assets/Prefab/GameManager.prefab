@@ -204,8 +204,9 @@ MonoBehaviour:
   poofParticle: {fileID: 751005161507958597, guid: 82d7d053f1bc92a44a7e243c8da3097b, type: 3}
   gameSFX: {fileID: 6051745559325415486}
   castanets: {fileID: 8300000, guid: 747ac1ef04bd5ae41a5d256350ac73f3, type: 3}
-  scoreSFX: {fileID: 8300000, guid: 03ccbbcc675715a4392d60abe2f45df6, type: 3}
+  scoreSFX: {fileID: 8300000, guid: b7bb0c3c0a9828b4a96a90ca5518545b, type: 3}
   enemyLatcher: {fileID: 0}
+  lobbyObject: {fileID: 7820340847692655262, guid: 2522cba658f2aed419e42ad8fecf8cb0, type: 3}
 --- !u!82 &5811298611946686996
 AudioSource:
   m_ObjectHideFlags: 0

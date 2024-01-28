@@ -15,6 +15,8 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public AudioSource gameSFX;
     public AudioClip castanets, scoreSFX;
     public EnemyLatcher enemyLatcher;
+    public GameObject lobbyObject;
+    GameObject lobbyInstance;
     float nextSpawn;
     int currentWave, capturesThisWave;
     List<EnemyInstance> enemyInstances;
@@ -37,13 +39,17 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 
     public void EndGame()
     {
-        ChangeState(GameState.Ended);
+        ChangeState(GameState.Lobby);
     }
 
     private void ChangeState(GameState newState)
     {
         MusicWrangler.Instance.CheckState(this.state, newState);
         this.state = newState;
+        if(this.state == GameState.Lobby)
+        {
+            lobbyInstance = Instantiate(lobbyObject, Vector3.zero, Quaternion.identity);
+        }
     }
 
     private void Update()
@@ -58,7 +64,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
             {
                 SpawnEnemy();
             }
-            else if(capturesThisWave >= GetWave().quota && enemyInstances.Count == 0)
+            else if(capturesThisWave >= GetWave().quota)
             {
                 NewWave();
             }
@@ -96,12 +102,19 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 
     public void NewWave()
     {
-        currentWave++;
-        capturesThisWave = 0;
-        waveSignpost.NextWave(currentWave);
-        nextSpawn = Time.time + 7;
-        gameSFX.clip = castanets;
-        gameSFX.Play();
+        if (currentWave < waves.Count - 1)
+        {
+            currentWave++;
+            capturesThisWave = 0;
+            waveSignpost.NextWave(currentWave);
+            nextSpawn = Time.time + 7;
+            gameSFX.clip = castanets;
+            gameSFX.Play();
+        }
+        else
+        {
+            EndGame();
+        }
     }
 
     public Wave GetWave()
@@ -129,8 +142,6 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         }
         else if(other.tag == "StartSign")
         {
-            EnemyInstance enemy = other.GetComponent<EnemyInstance>();
-            enemy.Poof();
             score = 0;
             capturesThisWave = 0;
 
@@ -139,6 +150,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 
             gameSFX.clip = castanets;
             gameSFX.Play();
+            GameObject.Destroy(lobbyInstance);
         }
 
     }
