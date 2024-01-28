@@ -52,6 +52,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         this.state = newState;
         if(this.state == GameState.Lobby)
         {
+            enemyInstances = new List<EnemyInstance>();
             lobbyInstance = Instantiate(lobbyObject, Vector3.zero, Quaternion.identity);
         }
     }
