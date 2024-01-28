@@ -100,9 +100,9 @@ public class EnemyInstance : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Lasso()
     {
-        if(other.tag == "Lasso" && state == EnemyState.Acting)
+        if(state == EnemyState.Acting)
         {
             lassoMesh.SetActive(true);
             state = EnemyState.Lassoed;

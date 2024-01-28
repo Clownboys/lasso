@@ -14,15 +14,16 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     float nextSpawn;
     int currentWave, capturesThisWave;
     List<EnemyInstance> enemyInstances;
+
     protected override void Awake()
     {
         base.Awake();
     }
 
-    private void Start()
-    {
-        ChangeState(GameState.Lobby);
-    }
+	private void Start()
+	{
+		ChangeState(GameState.Lobby);
+	}
 
     public void StartGame()
     {

@@ -165,8 +165,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.72937495, y: 1.1838536, z: 0.06582988}
+  m_Center: {x: -0, y: 0.5919268, z: 0}
 --- !u!1 &4576599190407309458
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 3680152726598557079}
   - component: {fileID: 1790667294272289010}
   - component: {fileID: 1327194101521613124}
+  - component: {fileID: 6458870314156203571}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -354,6 +355,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27eb7a30d62dbcb42b64246d7c050351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6458870314156203571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608060061756196480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 0
 --- !u!1 &5867360464050456681
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5479147859057932704}
   - component: {fileID: 1603033504929303365}
+  - component: {fileID: 6478237068251089083}
   m_Layer: 11
   m_Name: Trigger Collider
   m_TagString: Untagged
@@ -535,6 +550,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6478237068251089083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8095932345567490586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 1603033504929303365}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &8378868963054886626
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,31 @@
+{
+    "name": "com.ecshowcase.xr",
+    "rootNamespace": "EcXR",
+    "references": [
+        "GUID:dc960734dc080426fa6612f1c5fe95f3",
+        "GUID:f64c9ebcd7899c3448a08dc9f9ddbe30",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.oculus",
+            "expression": "",
+            "define": "USE_OCULUS_XR_PACKAGE"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "USE_RENDER_PIPELINE_URP"
+        }
+    ],
+    "noEngineReferences": false
+}
