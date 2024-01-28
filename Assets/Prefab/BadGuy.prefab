@@ -499,6 +499,7 @@ MonoBehaviour:
   cannonball: {fileID: 6118095499954267356}
   cannonOrigin: {fileID: 3350264476232805485}
   shootAnim: {fileID: 2249211225987195709}
+  gunshot: {fileID: 8300000, guid: 642b6202969926146a0d39ac1d6d445c, type: 3}
 --- !u!4 &6568844782045273215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 817463504326437801, guid: 7f13aba361134c146862354f6ef6f766, type: 3}

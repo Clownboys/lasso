@@ -11,6 +11,8 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public List<Wave> waves;
     public WaveSignpost waveSignpost;
     public ParticleSystem poofParticle;
+    public AudioSource gameSFX;
+    public AudioClip castanets, scoreSFX;
     float nextSpawn;
     int currentWave, capturesThisWave;
     List<EnemyInstance> enemyInstances;
@@ -92,7 +94,9 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         currentWave++;
         capturesThisWave = 0;
         waveSignpost.NextWave(currentWave);
-        nextSpawn = Time.time + 10;
+        nextSpawn = Time.time + 7;
+        gameSFX.clip = castanets;
+        gameSFX.Play();
     }
 
     public Wave GetWave()
@@ -112,6 +116,8 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
             enemy.Poof();
             score += enemy.type.score;
             capturesThisWave += 1;
+            gameSFX.clip = scoreSFX;
+            gameSFX.Play();
         }
 
     }

@@ -2270,6 +2270,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0dc0bfa1bd08b91489ba142dc2471710, type: 2}
   waveSignpost: {fileID: 875100002}
   poofParticle: {fileID: 0}
+  gameSFX: {fileID: 812180299}
+  castanets: {fileID: 8300000, guid: 747ac1ef04bd5ae41a5d256350ac73f3, type: 3}
+  scoreSFX: {fileID: 0}
 --- !u!4 &1752801360
 Transform:
   m_ObjectHideFlags: 0
@@ -2284,6 +2287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1632190270}
+  - {fileID: 812180300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1752801361
