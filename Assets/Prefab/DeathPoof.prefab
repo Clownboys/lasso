@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6556733421597401610}
   - component: {fileID: 751005161507958597}
   - component: {fileID: 6684413454736692304}
+  - component: {fileID: 5132196669406505586}
   m_Layer: 0
   m_Name: DeathPoof
   m_TagString: Untagged
@@ -48,7 +49,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -251,7 +252,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -281,7 +282,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     startSize:
@@ -1384,14 +1385,14 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 65535
-        atime3: 65535
+        atime2: 0
+        atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -1414,14 +1415,14 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 65535
-        atime2: 65535
+        atime2: 0
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -4888,3 +4889,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5132196669406505586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8877216388923117109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4368fbc1c6fa04849b3ae37d7751d7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -97,7 +97,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 
     public void RemoveEnemy(EnemyInstance enemy)
     {
-        if (enemy.type.name != "StartSign")
+        if (enemyInstances.Contains(enemy))
         {
             enemyInstances.Remove(enemy);
         }
