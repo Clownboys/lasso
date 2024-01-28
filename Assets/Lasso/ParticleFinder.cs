@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class ParticleFinder : MonoBehaviour
 {
-	public int iClosest;
-	public int iElementClosest;
+	public int iClosest = 1;
+	public int iElementClosest = 1;
 	public Vector3 closestTangent;
 
 	public ObiRope rope;

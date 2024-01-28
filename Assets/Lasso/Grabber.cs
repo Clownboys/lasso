@@ -20,9 +20,9 @@ public class Grabber : MonoBehaviour
 
 		prevPosition = transform.position;
 
-		if(Vector3.Distance(transform.position, hook.transform.position) < switchHandRadius)
+		if(Vector3.Distance(transform.position, hook.other.transform.position) < switchHandRadius)
 		{
-			iHeld = hook.rope.elements[hook.iElementClosest + hook.limitSign].particle1;
+			iHeld = hook.rope.elements[Mathf.Max(hook.other.iElementClosest, 1) + hook.limitSign].particle1;
 		} else
 		{
 			iHeld = hook.iClosest;
