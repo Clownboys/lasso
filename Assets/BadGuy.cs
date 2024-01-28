@@ -9,6 +9,7 @@ public class BadGuy : EnemyInstance
     public Rigidbody cannonball;
     public Transform cannonOrigin;
     public VisualEffect shootAnim;
+    public AudioClip gunshot;
     float lastShot;
 
     protected override void StartBehaviour()
@@ -26,6 +27,8 @@ public class BadGuy : EnemyInstance
             cannonball.AddForce(force * 2, ForceMode.Impulse);
             lastShot = Time.time;
             shootAnim.Play();
+            sound.clip = gunshot;
+            sound.Play();
         }
     }
 }
