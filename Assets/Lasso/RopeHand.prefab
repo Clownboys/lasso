@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb028af5a436d844995a69eba2dc75ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchHandRadius: 0.1
+  switchHandRadius: 0.15
 --- !u!114 &4589726598395615114
 MonoBehaviour:
   m_ObjectHideFlags: 0
