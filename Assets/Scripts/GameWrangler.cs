@@ -1,3 +1,4 @@
+using Obi;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public ParticleSystem poofParticle;
     public AudioSource gameSFX;
     public AudioClip castanets, scoreSFX;
+    public EnemyLatcher enemyLatcher;
     float nextSpawn;
     int currentWave, capturesThisWave;
     List<EnemyInstance> enemyInstances;
@@ -116,6 +118,9 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
             enemy.Poof();
             score += enemy.type.score;
             capturesThisWave += 1;
+
+            enemyLatcher.Unlatch();
+
             gameSFX.clip = scoreSFX;
             gameSFX.Play();
         }

@@ -16,12 +16,15 @@ public class EnemyInstance : MonoBehaviour
     Animator anim;
     float startTime;
     Rigidbody rb;
+    BillboardToCenter billboard;
     // Start is called before the first frame update
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-    }
+        billboard = GetComponent<BillboardToCenter>();
+
+	}
 
     protected void Start()
     {
@@ -30,7 +33,7 @@ public class EnemyInstance : MonoBehaviour
 
     public void InstantiateEnemy(EnemyType type)
     {
-        Debug.Log("Instantiating type " + type.name);
+        //Debug.Log("Instantiating type " + type.name);
         this.type = type;
         startTime = Time.time;
         StartBehaviour();
@@ -38,9 +41,9 @@ public class EnemyInstance : MonoBehaviour
 
     protected void Update()
     {
-        Debug.Log(state);
-        Debug.Log(type.lifetime);
-        Debug.Log(startTime);
+        //Debug.Log(state);
+        //Debug.Log(type.lifetime);
+        //Debug.Log(startTime);
         if (Time.time > startTime + type.lifetime && state == EnemyState.Acting)
         {
             FallDown();
@@ -105,7 +108,10 @@ public class EnemyInstance : MonoBehaviour
         if(state == EnemyState.Acting)
         {
             lassoMesh.SetActive(true);
-            state = EnemyState.Lassoed;
+            rb.isKinematic = false;
+            billboard.enabled = false;
+			state = EnemyState.Lassoed;
+
         }
     }
 }
