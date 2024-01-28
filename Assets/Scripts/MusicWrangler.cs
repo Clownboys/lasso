@@ -107,7 +107,6 @@ public class MusicWrangler : SingletonBehavior<MusicWrangler>
                     fadeState = FadeState.Steady;
                 }
             }
-            Debug.Log(music.time + " " + music.clip.length);
             if (!music.isPlaying && fadeState == FadeState.Steady)
             {
                 if (this.state == MusicState.LobbyIntro)
