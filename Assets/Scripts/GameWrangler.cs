@@ -65,9 +65,15 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         nextSpawn = Time.time + 5;
         int randomIndex = (int) Mathf.Floor(UnityEngine.Random.Range(0, GetWave().enemies.Count));
         EnemyType enemy = GetWave().enemies[randomIndex];
-        Vector3 randomDirection = new Vector3(UnityEngine.Random.Range(-1.0f, 1.0f), 0, UnityEngine.Random.Range(-1.0f, 1.0f));
-        float randomDistance = UnityEngine.Random.Range(3.0f, 10.0f);
-        Vector3 location = transform.position + (randomDirection * randomDistance);
+        Debug.Log(randomIndex + " " + enemy.enemyName);
+        float x = UnityEngine.Random.Range(-1.0f, 1.0f);
+        float z = UnityEngine.Random.Range(-1.0f, 1.0f);
+        Vector3 randomDirection = new Vector3(x, 0, z);
+        float randomDistance = UnityEngine.Random.Range(1.0f, 7.0f);
+        Vector3 offset = (randomDirection * randomDistance);
+        offset.x += Math.Sign(offset.x)*2.0f;
+        offset.z += Math.Sign(offset.z)*2.0f;
+        Vector3 location = transform.position + offset;
         Debug.Log("Spawning " + enemy.enemyName + " at dir=" + randomDirection + " distance=" + randomDistance + " location="+location);
         EnemyInstance newEnemy = Instantiate(enemy.prefab, location, Quaternion.identity);
         enemyInstances.Add(newEnemy);
