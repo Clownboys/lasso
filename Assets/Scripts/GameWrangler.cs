@@ -12,7 +12,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public WaveSignpost waveSignpost;
     public ParticleSystem poofParticle;
     float nextSpawn;
-    int currentWave, spawnsThisWave;
+    int currentWave, capturesThisWave;
     List<EnemyInstance> enemyInstances;
     protected override void Awake()
     {
@@ -49,11 +49,11 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         }
         else if(state == GameState.Started)
         {
-            if (Time.time > nextSpawn && spawnsThisWave < GetWave().spawns)
+            if (Time.time > nextSpawn && capturesThisWave < GetWave().quota && enemyInstances.Count < GetWave().maxOnField)
             {
                 SpawnEnemy();
             }
-            else if(spawnsThisWave >= GetWave().spawns && enemyInstances.Count == 0)
+            else if(capturesThisWave >= GetWave().quota && enemyInstances.Count == 0)
             {
                 NewWave();
             }
@@ -78,7 +78,6 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
         EnemyInstance newEnemy = Instantiate(enemy.prefab, location, Quaternion.identity);
         enemyInstances.Add(newEnemy);
         newEnemy.InstantiateEnemy(enemy);
-        spawnsThisWave++;
     }
 
     public void RemoveEnemy(EnemyInstance enemy)
@@ -90,7 +89,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public void NewWave()
     {
         currentWave++;
-        spawnsThisWave = 0;
+        capturesThisWave = 0;
         waveSignpost.NextWave(currentWave);
         nextSpawn = Time.time + 10;
     }
@@ -111,6 +110,7 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
             EnemyInstance enemy = other.GetComponent<EnemyInstance>();
             enemy.Poof();
             score += enemy.type.score;
+            capturesThisWave += 1;
         }
 
     }
@@ -119,6 +119,6 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 [System.Serializable]
 public class Wave
 {
-    public int spawns;
+    public int quota, maxOnField;
     public List<EnemyType> enemies;
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyInstance : MonoBehaviour
 {
+    public enum EnemyState { Acting, Lassoed, Dying, Dead }
+    public EnemyState state = EnemyState.Acting;
     public AudioSource sound;
     public AudioClip popupSound;
     public AudioClip spinSound;
     public AudioClip grabbedSound;
     public EnemyType type;
+    public GameObject lassoMesh;
+    public Transform lassoPoint;
     Animator anim;
     float startTime;
     Rigidbody rb;
@@ -19,24 +23,33 @@ public class EnemyInstance : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
+    protected void Start()
     {
         anim.Play("EnemyPopup");
     }
 
     public void InstantiateEnemy(EnemyType type)
     {
+        Debug.Log("Instantiating type " + type.name);
         this.type = type;
         startTime = Time.time;
+        StartBehaviour();
     }
 
-    private void Update()
+    protected void Update()
     {
-        if (Time.time > startTime + type.lifetime)
+        Debug.Log(state);
+        Debug.Log(type.lifetime);
+        Debug.Log(startTime);
+        if (Time.time > startTime + type.lifetime && state == EnemyState.Acting)
         {
             FallDown();
         }
+        UpdateBehaviour();
     }
+
+    protected virtual void StartBehaviour() { }
+    protected virtual void UpdateBehaviour() { }
 
     public void PopupEvent()
     {
@@ -57,16 +70,19 @@ public class EnemyInstance : MonoBehaviour
 
     public void FallDown()
     {
+        state = EnemyState.Dying;
         anim.Play("EnemyDespawn");
     }
 
     public void Poof()
     {
+        state = EnemyState.Dying;
         Despawn();
     }
 
     public void Despawn()
     {
+        state = EnemyState.Dead;
         GameWrangler.Instance.RemoveEnemy(this);
     }
 
@@ -86,18 +102,10 @@ public class EnemyInstance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Lasso")
+        if(other.tag == "Lasso" && state == EnemyState.Acting)
         {
-            Debug.Log("Trigger lasso");
+            lassoMesh.SetActive(true);
+            state = EnemyState.Lassoed;
         }
     }
-}
-
-[CreateAssetMenu(fileName = "Enemy", menuName = "Lasso/Create EnemyType", order = 1)]
-public class EnemyType : ScriptableObject
-{
-    public string enemyName;
-    public float lifetime;
-    public int score;
-    public EnemyInstance prefab;
 }
