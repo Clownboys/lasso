@@ -87,7 +87,10 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
 
     public void RemoveEnemy(EnemyInstance enemy)
     {
-        enemyInstances.Remove(enemy);
+        if (enemy.type.name != "StartSign")
+        {
+            enemyInstances.Remove(enemy);
+        }
         GameObject.Destroy(enemy.gameObject);
     }
 
@@ -122,6 +125,19 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
             enemyLatcher.Unlatch();
 
             gameSFX.clip = scoreSFX;
+            gameSFX.Play();
+        }
+        else if(other.tag == "StartSign")
+        {
+            EnemyInstance enemy = other.GetComponent<EnemyInstance>();
+            enemy.Poof();
+            score = 0;
+            capturesThisWave = 0;
+
+            StartGame();
+            enemyLatcher.Unlatch();
+
+            gameSFX.clip = castanets;
             gameSFX.Play();
         }
 
