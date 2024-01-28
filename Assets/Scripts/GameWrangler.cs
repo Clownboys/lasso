@@ -40,6 +40,10 @@ public class GameWrangler : CollabXR.SingletonBehavior<GameWrangler>
     public void EndGame()
     {
         ChangeState(GameState.Lobby);
+        foreach(EnemyInstance instance in enemyInstances)
+        {
+            RemoveEnemy(instance);
+        }
     }
 
     private void ChangeState(GameState newState)
