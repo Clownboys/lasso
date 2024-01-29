@@ -3,6 +3,8 @@
 
 VR clown-wrangling game for Oculus Quest
 
+Tested on Quest 3. Probably works on 2 & Pro.
+
 Demo: https://www.youtube.com/watch?v=VLHpE9YZ7sA
 
 Directions:
