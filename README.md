@@ -11,9 +11,8 @@ Directions:
 - Not left hand friendly :(
 - Triggers (not grip!) grab rope. Rope slides through hand when trigger is released.
 - Swing heavy rope end around head and release both triggers to let it fly!
-- Completely physics & technique based. Takes some practice to throw well
-- Wrangle in clowns, but avoid cacti!
-- Cacti and clown guns don't cause any penalty currently
+- Wrangle clowns, but avoid cacti (there is no implemented penalty for cacti though)!
+- Completely physics & technique based. Takes some practice to throw well. Your arm will get tired :)
 
 
 Credit:
